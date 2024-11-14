@@ -1,0 +1,18 @@
+import java.util.Scanner;
+//uso del ciclo for
+public class Multiplicacion {
+
+	public static void main(String[] args) {
+		Scanner entrada = new Scanner(System.in);
+		int i,t,w;
+		
+		System.out.println("Ingrese tabla");
+		t=entrada.nextInt();
+		
+		for(i=1;i<=10;i++) {
+			w=t*i;
+			System.out.println(t+"x"+i+"="+w);
+		}
+	}
+
+}
