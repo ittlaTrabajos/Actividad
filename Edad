@@ -1,0 +1,22 @@
+import java.util.Scanner;
+//uso de ciclo for,contadores y acumuladores
+public class Edad {
+
+	public static void main(String[] args) {
+		Scanner entrada = new Scanner(System.in);
+		int con=0,acum=0,i,edad;
+		for(i=0;i<=4;i++) {
+			System.out.println("Ingresa edad");
+			edad=entrada.nextInt();
+			if(edad<=12) {
+				System.out.println("Niño");
+				con++;
+				acum=edad+1;
+			} else {
+				System.out.println("Adulto");
+			}
+		}
+
+	}
+
+}
