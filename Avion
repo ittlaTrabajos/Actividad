@@ -14,7 +14,7 @@ public class Avion {
 				//System.out.println("Costo del boleto $500");
 				a=500;
 				contniños++;
-				acumniños=acumniños+edad;
+				acumniños=acumniños+edad;//contadorxprecio de boleto
 			}
 			if(edad>=6 && edad<=69) {
 				//System.out.println("Costo del boleto $1000");
