@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+public class Calificaciones {
+
+	public static void main(String[] args) {
+		Scanner entrada= new Scanner(System.in);
+		int i,a,b,c,d,p,m1,m2,m3;
+		
+		for(i=0;i<=4;i++) {
+			
+		}
+	}
+
+}
