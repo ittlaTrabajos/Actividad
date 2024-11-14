@@ -14,24 +14,21 @@ public class Avion {
 				//System.out.println("Costo del boleto $500");
 				a=500;
 				contniños++;
-				acumniños=acumniños+edad;//contadorxprecio de boleto
+				acumniños=contniños*a;//contadorxprecio de boleto
 			}
 			if(edad>=6 && edad<=69) {
 				//System.out.println("Costo del boleto $1000");
 				b=1000;
 				contadultos++;
-				acumadultos=acumniños+edad;
+				acumadultos=contadultos*b;
 			}
 			if(edad>=70) {
 				//System.out.println("Costo del boleto $800");
 				c=800;
 				contmayores++;
-				acummayores=acumniños+edad;
+				acummayores=contmayores*c;
 			}
-			d=contniños+a;
-			p=contadultos+b;
-			g=contmayores+c;
-			acumpagogeneral=d+p+g;
+			acumpagogeneral=acumniños+acumadultos+acummayores;
 			
 		}
 		
@@ -41,7 +38,7 @@ public class Avion {
 		System.out.println("Pago por adulto es "+b);
 		System.out.println("La cantidad de mayores es "+ contmayores);
 		System.out.println("Pago por mayores es "+c);
-		System.out.println("Pago general es "+ d);
+		System.out.println("Pago general es "+ acumpagogeneral);
 
 	}
 
