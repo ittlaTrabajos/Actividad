@@ -1,0 +1,48 @@
+import java.util.Scanner;
+public class Avion {
+
+	public static void main(String[] args) {
+		Scanner entrada=new Scanner(System.in);
+		int contniños=0, acumniños=0,contadultos=0, acumadultos=0,contmayores=0,
+			acummayores=0,edad,i,acumpagogeneral=0,a = 0,b = 0,c = 0,d = 0,p,g;
+		
+		for(i=0;i<=10;i++) {
+			System.out.println("Ingresa edad");
+			edad=entrada.nextInt();
+			
+			if(edad<=5) {
+				//System.out.println("Costo del boleto $500");
+				a=500;
+				contniños++;
+				acumniños=acumniños+edad;
+			}
+			if(edad>=6 && edad<=69) {
+				//System.out.println("Costo del boleto $1000");
+				b=1000;
+				contadultos++;
+				acumadultos=acumniños+edad;
+			}
+			if(edad>=70) {
+				//System.out.println("Costo del boleto $800");
+				c=800;
+				contmayores++;
+				acummayores=acumniños+edad;
+			}
+			d=contniños+a;
+			p=contadultos+b;
+			g=contmayores+c;
+			acumpagogeneral=d+p+g;
+			
+		}
+		
+		System.out.println("La cantidad de niños es "+ contniños);
+		System.out.println("Pago por niño es "+a);
+		System.out.println("La cantidad de adultos es "+ contadultos);
+		System.out.println("Pago por adulto es "+b);
+		System.out.println("La cantidad de mayores es "+ contmayores);
+		System.out.println("Pago por mayores es "+c);
+		System.out.println("Pago general es "+ d);
+
+	}
+
+}
