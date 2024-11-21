@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class View_Tv {
+
+	public static void main(String[] args) {
+		Scanner entrada = new Scanner(System.in);
+		int a,t,d,c;
+		String n="";
+		
+		
+		System.out.println("     Menu     ");
+		    System.out.println("1: Confianza");
+        System.out.println("2: Base");
+        System.out.println("3: Administrativo");
+        System.out.println("4: Intendencia");
+        
+        System.out.println("-- Tipo de plaza --");
+        t=entrada.nextInt();
+        
+        System.out.println("-- Nombre --");
+        n=entrada.next();
+        
+        System.out.println("--Antiguedad en anos--");
+        a=entrada.nextInt();
+        
+        System.out.println("--Dias no laborados--");
+        d=entrada.nextInt();
+        
+        System.out.println("--Contratos vendidos--");
+        c=entrada.nextInt();
+        
+        switch(t){
+        case 1:
+			System.out.println("Plaza de confianza");
+		break;
+		case 2:
+			System.out.println("Plaza de base");
+		break;
+		case 3:
+			System.out.println("Plaza administrativa");
+		break;
+		case 4:
+			System.out.println("Plaza de intendencia");
+		break;
+		default:
+			System.out.println("Fuera de rango");
+		break;
+        }
+		System.out.println("View Tv");
+		System.out.println("~~ Recibo de nomina ~~");
+		System.out.println("Nombre: "+n);
+		System.out.println("Antiguedad: "+a);
+		System.out.println("Contratos vendidos: "+c);
+		System.out.println("Salario base: ");
+		System.out.println("Dias no laborados(faltas): "+d);
+		System.out.println("Dias no laborados($): ");
+		System.out.println("Comiciones por contrato: ");
+		System.out.println("ISR: ");
+		System.out.println("SEG. Social: ");
+		System.out.println("Total a pagar neto: ");
+	}
+
+}
