@@ -2,7 +2,133 @@ import java.util.Scanner;
 
 public class View_Tv {
 
-	public static void main(String[] args) {
+	Scanner entrada =new Scanner (System.in);
+		final double SDB=250,ISR=0.02,IMSS=0.03,COMCONT=100;
+		double ant,dnl,cv,sc,sb,sa = 0,si,cl = 0,st = 0,scp,scb = 0,sca,sci,seg = 0,bonant = 0,dl,dnlp = 0,disr = 0;
+		int t;
+		String n,nt = null;
+		
+		System.out.println(" VIEW TV ");
+		System.out.println("Seleccione el tipo de plaza segun el menu");
+		System.out.println("1.CONFIANZA");
+		System.out.println("2.BASE");
+		System.out.println("3.ADMINISTRATIVO");
+		System.out.println("4.INTENDENCIA");
+		t=entrada.nextInt();
+		
+		
+		System.out.print("Nombre ");
+		n=entrada.next();
+		System.out.println("Antiguedad en anos");
+		ant=entrada.nextDouble();
+		System.out.println("Dias NO laborados");
+		dnl=entrada.nextDouble();
+		System.out.println("Contratos vendidos");
+		cv=entrada.nextDouble();
+		
+		dl=15-dnl;
+		sc=(SDB*15);
+		scp=sa-(sa*ISR);
+		sb=(SDB*15)-(SDB*dnl);
+		scb=sb-(sb*ISR);
+		sa=(SDB*15)-(SDB*dnl);
+		sca=sa-(sa*ISR);
+		si=(SDB*15)-(SDB*dnl);
+		sci=si-(si*ISR);
+		if(ant>10) {
+			bonant=300;
+		}
+		
+		switch(t) {
+		case 1: 
+			nt="CONFIANZA";
+			cl=cv*100;
+			seg=(15*SDB)*IMSS;
+			disr=sc*ISR;
+			st=sc+cl-disr-seg+bonant;
+			System.out.println("========== Recibo de Nomina =============");
+			 System.out.println(" Nombre: "+n);
+			 System.out.println(" Antiguedad: "+ant);
+			 System.out.println(" Tipo de Plaza: "+nt);
+			 System.out.println(" Dias Laborados: "+dl);
+			 System.out.println(" Dias no laborados: "+dnl);
+			 System.out.println(" Contratos vendidos: "+cv);
+			 System.out.println(" Salario Base: $3750");
+			 System.out.println(" Dias no laborados($): "+dnlp);
+			 System.out.println(" Comisiones por contrato: "+cl);
+			 System.out.println(" ISR: "+disr);
+			 System.out.println(" Seguro Social: "+seg);
+			 System.out.println(" Total a Pagar: "+st);
+			break;
+		case 2:
+			nt="BASE";
+			cl=cv*100;
+			seg=(15*SDB)*IMSS;
+			disr=sb*ISR;
+			dnlp=dnl*250;
+			st=sb+cl-disr-seg+bonant;
+			System.out.println("========== RECIBO DE NOMINA =============");
+			 System.out.println(" Nombre: "+n);
+			 System.out.println(" Antiguedad: "+ant);
+			 System.out.println(" Tipo de Plaza: "+nt);
+			 System.out.println(" Dias Laborados: "+dl);
+			 System.out.println(" Dias no laborados: "+dnl);
+			 System.out.println(" Contratos vendidos: "+cv);
+			 System.out.println(" Salario Base: $3750");
+			 System.out.println(" Dias no laborados($): "+dnlp);
+			 System.out.println(" Comisiones por contrato: "+cl);
+			 System.out.println(" ISR: "+disr);
+			 System.out.println(" Seguro Social: "+seg);
+			 System.out.println(" Total a Pagar: "+st);
+			break;
+		case 3:
+			nt="ADMINISTRATIVO";
+			cl=cv*100;
+			seg=(15*SDB)*IMSS;
+			disr=sa*ISR;
+			dnlp=dnl*250;
+			st=sa+cl-disr-seg+bonant;
+			System.out.println("========== Recibo de Nomina =============");
+			 System.out.println(" Nombre: "+n);
+			 System.out.println(" Antiguedad: "+ant);
+			 System.out.println(" Tipo de Plaza: "+nt);
+			 System.out.println(" Dias Laborados: "+dl);
+			 System.out.println(" Dias no laborados: "+dnl);
+			 System.out.println(" Contratos vendidos: "+cv);
+			 System.out.println(" Salario Base: $3750");
+			 System.out.println(" Dias no laborados($): "+dnlp);
+			 System.out.println(" Comisiones por contrato: "+cl);
+			 System.out.println(" ISR: "+disr);
+			 System.out.println(" Seguro Social: "+seg);
+			 System.out.println(" Total a Pagar: "+st);
+			break;
+		case 4:
+			nt="INTENDENCIA";
+			seg=(15*SDB)*IMSS;
+			disr=sb*ISR;
+			dnlp=dnl*250;
+			st=si-disr-seg+bonant;
+			System.out.println("========== Recibo de Nomina =============");
+			 System.out.println(" Nombre: "+n);
+			 System.out.println(" Antiguedad: "+ant);
+			 System.out.println(" Tipo de Plaza: "+nt);
+			 System.out.println(" Dias Laborados: "+dl);
+			 System.out.println(" Dias no laborados: "+dnl);
+			 //System.out.println(" Contratos vendidos: "+cv);
+			 System.out.println(" Salario Base: $3750");
+			 System.out.println(" Dias no laborados($): "+dnlp);
+			 System.out.println(" Comisiones por contrato: "+cl);
+			 System.out.println(" ISR: "+disr);
+			 System.out.println(" Seguro Social: "+seg);
+			 System.out.println(" Total a Pagar: "+st);
+			break;
+		}
+
+
+
+
+
+/*public static void main(String[] args) {
 		Scanner entrada = new Scanner(System.in);
 		int a,t,d,c;
 		String n="";
@@ -57,7 +183,7 @@ public class View_Tv {
 		System.out.println("Comiciones por contrato: ");
 		System.out.println("ISR: ");
 		System.out.println("SEG. Social: ");
-		System.out.println("Total a pagar neto: ");
+		System.out.println("Total a pagar neto: ");*/
 	}
 
 }
