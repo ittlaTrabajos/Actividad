@@ -1,189 +1,88 @@
 import java.util.Scanner;
 
-public class View_Tv {
+public class View_TV {
 
-	Scanner entrada =new Scanner (System.in);
-		final double SDB=250,ISR=0.02,IMSS=0.03,COMCONT=100;
-		double ant,dnl,cv,sc,sb,sa = 0,si,cl = 0,st = 0,scp,scb = 0,sca,sci,seg = 0,bonant = 0,dl,dnlp = 0,disr = 0;
-		int t;
-		String n,nt = null;
+	public static void main(String[] args) {
+		String nombre, tPlaza="Plaza";
+		int plaza;
+		double anti, dNoLab, conVen, descIn=0, total=0, dLab, comCont, isr, sueldoTotal=0, imss;
+		final double SUELDOBASE=250, ISR=0.02, IMSS=0.03, COMCONT=100, SUELDO=3750;
+		Scanner entrada=new Scanner (System.in);
 		
-		System.out.println(" VIEW TV ");
-		System.out.println("Seleccione el tipo de plaza segun el menu");
-		System.out.println("1.CONFIANZA");
-		System.out.println("2.BASE");
-		System.out.println("3.ADMINISTRATIVO");
-		System.out.println("4.INTENDENCIA");
-		t=entrada.nextInt();
+		System.out.println("VIEW TV");
+		System.out.println("Seleccione el tipo de plaza");
+		System.out.println("1. Confianza");
+		System.out.println("2. Base");
+		System.out.println("3. Administrativo");
+		System.out.println("4. Intendencia");
 		
+		System.out.println("Ingrese los siguientes datos para generar recibo:");
+		System.out.println("Tipo de plaza que tiene: ");
+		plaza=entrada.nextInt();
+		System.out.println("Su nombre: ");
+		nombre=entrada.next();
+		System.out.println("Su antiguedad en años: ");
+		anti=entrada.nextDouble();
+		System.out.println("Dias no laborados: ");
+		dNoLab=entrada.nextDouble();
+		System.out.println("Contratos vendidos: ");
+		conVen=entrada.nextDouble();
 		
-		System.out.print("Nombre ");
-		n=entrada.next();
-		System.out.println("Antiguedad en anos");
-		ant=entrada.nextDouble();
-		System.out.println("Dias NO laborados");
-		dnl=entrada.nextDouble();
-		System.out.println("Contratos vendidos");
-		cv=entrada.nextDouble();
-		
-		dl=15-dnl;
-		sc=(SDB*15);
-		scp=sa-(sa*ISR);
-		sb=(SDB*15)-(SDB*dnl);
-		scb=sb-(sb*ISR);
-		sa=(SDB*15)-(SDB*dnl);
-		sca=sa-(sa*ISR);
-		si=(SDB*15)-(SDB*dnl);
-		sci=si-(si*ISR);
-		if(ant>10) {
-			bonant=300;
-		}
-		
-		switch(t) {
-		case 1: 
-			nt="CONFIANZA";
-			cl=cv*100;
-			seg=(15*SDB)*IMSS;
-			disr=sc*ISR;
-			st=sc+cl-disr-seg+bonant;
-			System.out.println("========== Recibo de Nomina =============");
-			 System.out.println(" Nombre: "+n);
-			 System.out.println(" Antiguedad: "+ant);
-			 System.out.println(" Tipo de Plaza: "+nt);
-			 System.out.println(" Dias Laborados: "+dl);
-			 System.out.println(" Dias no laborados: "+dnl);
-			 System.out.println(" Contratos vendidos: "+cv);
-			 System.out.println(" Salario Base: $3750");
-			 System.out.println(" Dias no laborados($): "+dnlp);
-			 System.out.println(" Comisiones por contrato: "+cl);
-			 System.out.println(" ISR: "+disr);
-			 System.out.println(" Seguro Social: "+seg);
-			 System.out.println(" Total a Pagar: "+st);
+		switch (plaza) {
+		case 1:
+			tPlaza="Plaza de confianza";
+			descIn=0;
 			break;
 		case 2:
-			nt="BASE";
-			cl=cv*100;
-			seg=(15*SDB)*IMSS;
-			disr=sb*ISR;
-			dnlp=dnl*250;
-			st=sb+cl-disr-seg+bonant;
-			System.out.println("========== RECIBO DE NOMINA =============");
-			 System.out.println(" Nombre: "+n);
-			 System.out.println(" Antiguedad: "+ant);
-			 System.out.println(" Tipo de Plaza: "+nt);
-			 System.out.println(" Dias Laborados: "+dl);
-			 System.out.println(" Dias no laborados: "+dnl);
-			 System.out.println(" Contratos vendidos: "+cv);
-			 System.out.println(" Salario Base: $3750");
-			 System.out.println(" Dias no laborados($): "+dnlp);
-			 System.out.println(" Comisiones por contrato: "+cl);
-			 System.out.println(" ISR: "+disr);
-			 System.out.println(" Seguro Social: "+seg);
-			 System.out.println(" Total a Pagar: "+st);
+			tPlaza="Plaza base";
+			descIn=dNoLab*SUELDOBASE;
+			total=total+200;
 			break;
 		case 3:
-			nt="ADMINISTRATIVO";
-			cl=cv*100;
-			seg=(15*SDB)*IMSS;
-			disr=sa*ISR;
-			dnlp=dnl*250;
-			st=sa+cl-disr-seg+bonant;
-			System.out.println("========== Recibo de Nomina =============");
-			 System.out.println(" Nombre: "+n);
-			 System.out.println(" Antiguedad: "+ant);
-			 System.out.println(" Tipo de Plaza: "+nt);
-			 System.out.println(" Dias Laborados: "+dl);
-			 System.out.println(" Dias no laborados: "+dnl);
-			 System.out.println(" Contratos vendidos: "+cv);
-			 System.out.println(" Salario Base: $3750");
-			 System.out.println(" Dias no laborados($): "+dnlp);
-			 System.out.println(" Comisiones por contrato: "+cl);
-			 System.out.println(" ISR: "+disr);
-			 System.out.println(" Seguro Social: "+seg);
-			 System.out.println(" Total a Pagar: "+st);
+			tPlaza="Plaza Administrativa";
+			descIn=dNoLab*SUELDOBASE;
 			break;
 		case 4:
-			nt="INTENDENCIA";
-			seg=(15*SDB)*IMSS;
-			disr=sb*ISR;
-			dnlp=dnl*250;
-			st=si-disr-seg+bonant;
-			System.out.println("========== Recibo de Nomina =============");
-			 System.out.println(" Nombre: "+n);
-			 System.out.println(" Antiguedad: "+ant);
-			 System.out.println(" Tipo de Plaza: "+nt);
-			 System.out.println(" Dias Laborados: "+dl);
-			 System.out.println(" Dias no laborados: "+dnl);
-			 //System.out.println(" Contratos vendidos: "+cv);
-			 System.out.println(" Salario Base: $3750");
-			 System.out.println(" Dias no laborados($): "+dnlp);
-			 System.out.println(" Comisiones por contrato: "+cl);
-			 System.out.println(" ISR: "+disr);
-			 System.out.println(" Seguro Social: "+seg);
-			 System.out.println(" Total a Pagar: "+st);
+			tPlaza="Plaza de Intendencia";
+			descIn=dNoLab*SUELDOBASE;
+			total=total+(SUELDO*ISR);
 			break;
-		}
 
-
-
-
-
-/*public static void main(String[] args) {
-		Scanner entrada = new Scanner(System.in);
-		int a,t,d,c;
-		String n="";
-		
-		
-		System.out.println("     Menu     ");
-		    System.out.println("1: Confianza");
-        System.out.println("2: Base");
-        System.out.println("3: Administrativo");
-        System.out.println("4: Intendencia");
-        
-        System.out.println("-- Tipo de plaza --");
-        t=entrada.nextInt();
-        
-        System.out.println("-- Nombre --");
-        n=entrada.next();
-        
-        System.out.println("--Antiguedad en anos--");
-        a=entrada.nextInt();
-        
-        System.out.println("--Dias no laborados--");
-        d=entrada.nextInt();
-        
-        System.out.println("--Contratos vendidos--");
-        c=entrada.nextInt();
-        
-        switch(t){
-        case 1:
-			System.out.println("Plaza de confianza");
-		break;
-		case 2:
-			System.out.println("Plaza de base");
-		break;
-		case 3:
-			System.out.println("Plaza administrativa");
-		break;
-		case 4:
-			System.out.println("Plaza de intendencia");
-		break;
 		default:
-			System.out.println("Fuera de rango");
-		break;
-        }
-		System.out.println("View Tv");
-		System.out.println("~~ Recibo de nomina ~~");
-		System.out.println("Nombre: "+n);
-		System.out.println("Antiguedad: "+a);
-		System.out.println("Contratos vendidos: "+c);
-		System.out.println("Salario base: ");
-		System.out.println("Dias no laborados(faltas): "+d);
-		System.out.println("Dias no laborados($): ");
-		System.out.println("Comiciones por contrato: ");
-		System.out.println("ISR: ");
-		System.out.println("SEG. Social: ");
-		System.out.println("Total a pagar neto: ");*/
+			tPlaza="Inexistente";
+			break;
+		}
+		
+		if (anti>=10) {
+			total=total+300;
+		} else {
+			total=total;
+
+		}
+		
+		dLab=15-dNoLab;
+		comCont=conVen*COMCONT;
+		sueldoTotal=SUELDO-descIn;
+		isr=sueldoTotal*ISR;
+		imss=SUELDO*IMSS;
+		total=total+sueldoTotal+comCont-isr-imss;
+		
+		System.out.println("VIEW TV");
+		System.out.println("======== RECIBO DE NOMINA ========");
+		System.out.println("Nombre: "+nombre);
+		System.out.println("Antiguedad: "+anti);
+		System.out.println("Tipo de plaza: "+tPlaza);
+		System.out.println("Dias Laborados: "+dLab);
+		System.out.println("Dias no laborados: "+dNoLab);
+		System.out.println("Contratos vendidos: "+conVen);
+		System.out.println("Sueldo base: "+SUELDO);
+		System.out.println("Dias no laborados($): "+descIn);
+		System.out.println("Comisiones por contrato: "+comCont);
+		System.out.println("ISR: "+isr);
+		System.out.println("Seguro Social: "+imss);
+		System.out.println("Total a pagar neto: "+total);
+		
+		
 	}
 
 }
