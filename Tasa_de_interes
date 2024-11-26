@@ -1,0 +1,102 @@
+import java.util.Scanner;
+
+public class Tasa_de_interes {
+
+	public static void main(String[] args) {
+		Scanner entrada=new Scanner(System.in);
+		double ta,tsc,tscd,tf,c,s;
+		int r,m,op;
+			
+		
+		
+			System.out.println("------Menu-----");
+			System.out.println("1: 6 meses");
+			System.out.println("2: 12 meses");
+			System.out.println("3: 18 meses");
+			System.out.println("4: 24 meses");
+			System.out.println("Ingrese opcion deseada");
+			m=entrada.nextInt();
+			
+			do {
+				System.out.println("ingrese capital deseado");
+				c=entrada.nextDouble();
+				System.out.println("Quieres continuar 1: si 2: no");
+				op=entrada.nextInt();
+		}
+			while(op==1);
+			switch(m){
+			case 1:
+				if(m<=100000) {
+					s=c*.03;//tasa correspondiente en $
+					tsc=0.03;//tasa correspondiente en %
+					ta=s+c;//total acumulado
+					tf=ta+tscd;//total final
+					
+				}
+				if(m>100000) {
+					tscd=(c*.05*6);//tasa correspondiente en $
+					tsc=(c*6)/tscd;//tasa correspondiente en %
+					ta=tscd+c;//total acumulado
+					tf=ta+tscd;//total final
+				}
+				break;
+			case 2:
+				if(m<=100000) {
+					tscd=(c*0.05*6);//tasa correspondiente en $
+					tsc=(c*6)/tscd;//tasa correspondiente en %
+					ta=tscd+c;//total acumulado
+					tf=ta+tscd;//total final
+				}
+				if(m>100000) {
+					tscd=(c*0.08*6);//tasa correspondiente en $
+					tsc=(c*6)/tscd;//tasa correspondiente en %
+					ta=tscd+c;//total acumulado
+					tf=ta+tscd;//total final
+				}
+				break;
+			case 3:
+				if(m<=100000) {
+					tscd=(c*0.08*6);//tasa correspondiente en $
+					tsc=(c*6)/tscd;//tasa correspondiente en %
+					ta=tscd+c;//total acumulado
+					tf=ta+tscd;//total final
+					
+				}
+				if(m>100000) {
+					tscd=(c*0.10*6);//tasa correspondiente en $
+					tsc=(c*6)/tscd;//tasa correspondiente en %
+					ta=tscd+c;//total acumulado
+					tf=ta+tscd;//total final
+					
+				}
+				break;
+			case 4:
+				if(m<=100000) {
+					tscd=(c*0.10*6);//tasa correspondiente en $
+					tsc=(c*6)/tscd;//tasa correspondiente en %
+					ta=tscd+c;//total acumulado
+					tf=ta+tscd;//total final
+					
+				}
+				if(m>100000) {
+					tscd=(c*0.12*6);//tasa correspondiente en $
+					tsc=(c*6)/tscd;//tasa correspondiente en %
+					ta=tscd+c;//total acumulado
+					tf=ta+tscd;//total final
+					
+				}
+				break;
+		}
+			System.out.println("----Tiket----");
+			System.out.println("Total acumulado $"+ta);
+			System.out.println("tasa correspondiente en % "+tsc);
+			System.out.println("tasa correspondiente en $"+tscd);
+			System.out.println("Total final $"+tf);
+			
+			
+		
+		
+		
+	}
+
+}
