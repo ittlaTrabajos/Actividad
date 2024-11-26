@@ -1,51 +1,51 @@
 import java.util.Scanner;
 
-public class View_TV {
+public class View_Tv {
 
 	public static void main(String[] args) {
-		String nombre, tPlaza="Plaza";
-		int plaza;
-		double anti, dNoLab, conVen, descIn=0, total=0, dLab, comCont, isr, sueldoTotal=0, imss;
-		final double SUELDOBASE=250, ISR=0.02, IMSS=0.03, COMCONT=100, SUELDO=3750;
+		
+		String n, tPlaza="Plaza";
+		int p;
+		double a, f, cv, fd=0, t=0, l, comCont, isr, st=0, sg;
+		final double SB=250, ISR=0.02, IMSS=0.03, COMCONT=100, SUELDO=3750;
 		Scanner entrada=new Scanner (System.in);
 		
-		System.out.println("VIEW TV");
+		System.out.println("-----MENU-----");
+		System.out.println("1.- Confianza");
+		System.out.println("2.- Base");
+		System.out.println("3.- Administrativo");
+		System.out.println("4.- Intendencia");
 		System.out.println("Seleccione el tipo de plaza");
-		System.out.println("1. Confianza");
-		System.out.println("2. Base");
-		System.out.println("3. Administrativo");
-		System.out.println("4. Intendencia");
+		p=entrada.nextInt();
 		
-		System.out.println("Ingrese los siguientes datos para generar recibo:");
-		System.out.println("Tipo de plaza que tiene: ");
-		plaza=entrada.nextInt();
-		System.out.println("Su nombre: ");
-		nombre=entrada.next();
-		System.out.println("Su antiguedad en años: ");
-		anti=entrada.nextDouble();
+		
+		System.out.println("Nombre: ");
+		n=entrada.next();
+		System.out.println("Antiguedad: ");
+		a=entrada.nextDouble();
 		System.out.println("Dias no laborados: ");
-		dNoLab=entrada.nextDouble();
+		f=entrada.nextDouble();
 		System.out.println("Contratos vendidos: ");
-		conVen=entrada.nextDouble();
+		cv=entrada.nextDouble();
 		
-		switch (plaza) {
+		switch (p) {
 		case 1:
 			tPlaza="Plaza de confianza";
-			descIn=0;
+			fd=0;
 			break;
 		case 2:
 			tPlaza="Plaza base";
-			descIn=dNoLab*SUELDOBASE;
-			total=total+200;
+			fd=f*SB;
+			t=t+200;
 			break;
 		case 3:
 			tPlaza="Plaza Administrativa";
-			descIn=dNoLab*SUELDOBASE;
+			fd=f*SB;
 			break;
 		case 4:
 			tPlaza="Plaza de Intendencia";
-			descIn=dNoLab*SUELDOBASE;
-			total=total+(SUELDO*ISR);
+			fd=f*SB;
+			t=t+(SUELDO*ISR);
 			break;
 
 		default:
@@ -53,36 +53,35 @@ public class View_TV {
 			break;
 		}
 		
-		if (anti>=10) {
-			total=total+300;
+		if (a>=10) {
+			t=t+300;
 		} else {
-			total=total;
+			t=t;
 
 		}
 		
-		dLab=15-dNoLab;
-		comCont=conVen*COMCONT;
-		sueldoTotal=SUELDO-descIn;
-		isr=sueldoTotal*ISR;
-		imss=SUELDO*IMSS;
-		total=total+sueldoTotal+comCont-isr-imss;
+		l=15-f;
+		comCont=cv*COMCONT;
+		st=SUELDO-fd;
+		isr=st*ISR;
+		sg=SUELDO*IMSS;
+		t=t+st+comCont-isr-sg;
 		
-		System.out.println("VIEW TV");
-		System.out.println("======== RECIBO DE NOMINA ========");
-		System.out.println("Nombre: "+nombre);
-		System.out.println("Antiguedad: "+anti);
+		
+		System.out.println("----------RECIBO DE NOMINA-----------");
+		System.out.println("Nombre: "+n);
+		System.out.println("Antiguedad: "+a);
 		System.out.println("Tipo de plaza: "+tPlaza);
-		System.out.println("Dias Laborados: "+dLab);
-		System.out.println("Dias no laborados: "+dNoLab);
-		System.out.println("Contratos vendidos: "+conVen);
-		System.out.println("Sueldo base: "+SUELDO);
-		System.out.println("Dias no laborados($): "+descIn);
+		System.out.println("Dias Laborados: "+l);
+		System.out.println("Dias no laborados: "+f);
+		System.out.println("Contratos vendidos: "+cv);
+		System.out.println("Sueldo base: "+st);
+		System.out.println("Dias no laborados($): "+fd);
 		System.out.println("Comisiones por contrato: "+comCont);
 		System.out.println("ISR: "+isr);
-		System.out.println("Seguro Social: "+imss);
-		System.out.println("Total a pagar neto: "+total);
-		
-		
+		System.out.println("Seguro Social: "+sg);
+		System.out.println("Total a pagar neto: "+t);
+
 	}
 
 }
