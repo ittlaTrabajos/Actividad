@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class lk {
+public class Tasa_de_interes {
 
 	public static void main(String[] args) {
 		Scanner entrada=new Scanner(System.in);
