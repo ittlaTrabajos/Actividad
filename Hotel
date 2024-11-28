@@ -1,0 +1,84 @@
+package unidad4;
+
+import java.util.Scanner;
+
+public class Hotel {
+
+	public static void main(String[] args) {
+		Scanner entrada = new Scanner(System.in);
+		
+		
+		int dias,edad,alimentos,huesped,conthusped=0,
+		    contninos=0,contadultos=0,contmayores=0,
+		    acumninos=0,acumadultos=0,acummayores=0,
+		    contalimento=0,acumalimento=0,ventas,total_de_ventas,grupo = 0;
+		
+		
+			System.out.println("-----Menu-----");
+			System.out.println("De 0 a 5 años (Niño)....$250");
+			System.out.println("De 6 a 70 años (Adulto)....$1000");
+			System.out.println("De 71 a 90 años (Adulto mayor)....$500");
+			
+		do {
+			System.out.println("Ingrese numero de dias solicitados");
+			dias=entrada.nextInt();
+			
+			do {
+				System.out.println("Ingresa edad");
+				edad=entrada.nextInt();
+				
+				System.out.println("Paquete de alimentos $500 1: si 2: no ");
+				alimentos = entrada.nextInt();
+				if(alimentos==1) {
+					contalimento++;
+					acumalimento=contalimento*500*dias;
+				}else {
+					acumalimento=alimentos*500*dias;
+				}
+				
+				if(edad<=5) {
+					System.out.println("Usted pagara $250 por dia");
+					contninos++;
+					acumninos=contninos*250*dias;
+				}
+				if(edad>=6 && edad <=70) {
+					System.out.println("Usted pagara $1000 por dia");
+					contadultos++;
+					acumadultos=contadultos*1000*dias;
+				}
+				if(edad>=71 && edad<=90) {
+					System.out.println("Usted pagara $500 por dia");
+					contmayores++;
+					acummayores=contmayores*500*dias;
+				}
+				
+				ventas=acumninos+acumadultos+acummayores;
+				System.out.println("Desea ingresar otro huesped 1:si 2:no");
+				huesped=entrada.nextInt();
+				total_de_ventas=ventas+acumalimento;
+				//conthusped++;
+			}
+			while(huesped==1);
+			
+			System.out.println("-----TIKET-----");
+			//System.out.println("huesped "+conthusped);//bandera pare ver si los cuenta
+			System.out.println("El total de niños "+contninos);
+			System.out.println("El total de adultos "+contadultos);
+			System.out.println("El total de adultos mayores "+contmayores);
+			System.out.println("El total en pesos de niños son "+acumninos);
+			System.out.println("El total en pesos de adultos son "+acumadultos);
+			System.out.println("El total en pesos de adultos mayores son "+acummayores);
+			System.out.println("El total a pagar por todas las ventas es "+ventas);
+			System.out.println("El total a pagar por los alimentos es "+acumalimento);
+			System.out.println("EL total a pagar es "+total_de_ventas);
+			
+			System.out.println("Desea ingresar otro grupo 1: si 2:no ");
+			grupo=entrada.nextInt();
+		}
+		while(grupo==1);
+		System.out.println("Gracias por su preferencia vuelva pronto");
+		
+		
+	}
+
+}
